@@ -9,6 +9,7 @@
     using SharpArch.NHibernate;
     using SharpArch.NHibernate.Contracts.Repositories;
     using SharpArch.Domain.Commands;
+    using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
     
     public class ComponentRegistrar
     {
@@ -16,6 +17,7 @@
         {
             AddGenericRepositoriesTo(container);
             AddCustomRepositoriesTo(container);
+            AddTasksTo(container);
             AddWcfServicesTo(container);
         }
 
@@ -58,10 +60,20 @@
                         .Named("commandProcessor"));
         }
 
+        private static void AddTasksTo(IWindsorContainer container)
+        {
+            container.Register(
+                AllTypes
+                    .FromAssemblyNamed("MHCP.Tasks")
+                    .Pick()
+                    .WithService.AllInterfaces());
+        }
+
         private static void AddWcfServicesTo(IWindsorContainer container)
         {
             container.Register(
-                Component.For(typeof(APRWcfService))
+                Component.For<APRWcfService>()
+                .ImplementedBy<APRWcfService>()
                 .Named("APRWcfService"));
         }
     }

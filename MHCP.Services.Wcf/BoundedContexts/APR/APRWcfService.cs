@@ -10,7 +10,7 @@ using System.ServiceModel;
 
 namespace MHCP.Services.Wcf.BoundedContexts.APR
 {
-    public class APRWcfService : IAPRWcfService
+    public class APRWcfService: IAPRWcfService
     {
         private readonly IPersonTasks personTask;
 
@@ -32,7 +32,7 @@ namespace MHCP.Services.Wcf.BoundedContexts.APR
         public IList<PersonDTO> GetPersonsByAge(int age)
         {
             //this.personTask.GetPersonsByAge(age);
-            return null;
+            return new List<PersonDTO>();
         }
     }
 }

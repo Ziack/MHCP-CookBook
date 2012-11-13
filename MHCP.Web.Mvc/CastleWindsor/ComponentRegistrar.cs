@@ -11,20 +11,22 @@
     using SharpArch.Web.Mvc.Castle;
     using Castle.Facilities.FactorySupport;
     using Castle.DynamicProxy;
-    using Castle.Core.Configuration;
     using Castle.Core;
+    using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
+    using MHCP.Web.Mvc.Services;
+    using MHCP.Services.Wcf.Client.APR;
 
     public class ComponentRegistrar
     {
         public static void AddComponentsTo(IWindsorContainer container) 
         {
-            AddGenericRepositoriesTo(container);
-            AddCustomRepositoriesTo(container);
+            //AddGenericRepositoriesTo(container);
+            //AddCustomRepositoriesTo(container);
             AddQueryObjectsTo(container);
-            AddTasksTo(container);
+            //AddTasksTo(container);
             AddHandlersTo(container);
 
-            //AddWcfServiceFactoriesTo(container);
+            AddWcfServiceFactoriesTo(container);
         }
 
         private static void AddTasksTo(IWindsorContainer container)
@@ -101,24 +103,23 @@
                     .WithService.FirstInterface());
         }
 
-        //private static void AddWcfServiceFactoriesTo(IWindsorContainer container)
-        //{
+        private static void AddWcfServiceFactoriesTo(IWindsorContainer container)
+        {
+            container.AddFacility<FactorySupportFacility>();
+            container.Register(Component.For<StandardInterceptor>()
+                .Named("standard.interceptor"));
 
-        //    var factoryKey = "APRWcfServiceFactory";
-        //    var serviceKey = "APRWcfService";
-
-        //    container.Register(Component.For<APRWcfService>().Named(factoryKey));
-        //    var config = new MutableConfiguration(serviceKey);
-        //    config.Attributes["factoryId"] = factoryKey;
-        //    config.Attributes["factoryCreate"] = "Create";
-        //    container.Kernel.ConfigurationStore.AddComponentConfiguration(serviceKey, config);
-        //    container.Kernel.Register(
-        //        Component.For<IAPRWcfService>()
-        //        .ImplementedBy<APRWcfServiceClient>()
-        //        .Named(serviceKey)
-        //        .LifeStyle.Is(LifestyleType.PerWebRequest));
-
+            container.Register(Component.For<APRWcfServiceFactory>().Named("APRWcfServiceFactory"));
             
-        //}
+            container.Kernel.Register(
+                Component.For<IAPRWcfService>()
+                .UsingFactory((APRWcfServiceFactory f) => f.Create())                
+                .ImplementedBy<APRWcfServiceClient>()
+                .Named("APRWcfServices")
+                .LifeStyle.Is(LifestyleType.PerWebRequest));
+
+
+        }
+
     }
 }

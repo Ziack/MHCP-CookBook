@@ -53,7 +53,7 @@
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            NHibernateInitializer.Instance().InitializeNHibernateOnce(this.InitialiseNHibernateSessions);
+            //NHibernateInitializer.Instance().InitializeNHibernateOnce(this.InitialiseNHibernateSessions);
         }
 
         protected void Application_Error(object sender, EventArgs e) 
@@ -100,15 +100,15 @@
             ServiceLocator.SetLocatorProvider(() => windsorServiceLocator);
         }
 
-        private void InitialiseNHibernateSessions()
-        {
-            NHibernateSession.ConfigurationCache = new NHibernateConfigurationFileCache();
+        //private void InitialiseNHibernateSessions()
+        //{
+        //    NHibernateSession.ConfigurationCache = new NHibernateConfigurationFileCache();
 
-            NHibernateSession.Init(
-                this.webSessionStorage,
-                new[] { Server.MapPath("~/bin/MHCP.Infrastructure.dll") },
-                new AutoPersistenceModelGenerator().Generate(),
-                Server.MapPath("~/NHibernate.config"));
-        }
+        //    NHibernateSession.Init(
+        //        this.webSessionStorage,
+        //        new[] { Server.MapPath("~/bin/MHCP.Infrastructure.dll") },
+        //        new AutoPersistenceModelGenerator().Generate(),
+        //        Server.MapPath("~/NHibernate.config"));
+        //}
     }
 }

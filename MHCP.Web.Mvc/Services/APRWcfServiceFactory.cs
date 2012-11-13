@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
-using MHCP.Services.Wcf.Client.APR;
 using System.ServiceModel;
 using System.Configuration;
+using MHCP.Services.Wcf.BoundedContexts.APR;
+using MHCP.Services.Wcf.Client.APR;
 
 namespace MHCP.Web.Mvc.Services
 {
     public class APRWcfServiceFactory
     {
-        public static IAPRWcfService Create()
+        public IAPRWcfService Create()
         {
             EndpointAddress address = new EndpointAddress(ConfigurationManager.AppSettings["IAPRWcfServiceUri"]);
             NetTcpBinding binding = new NetTcpBinding();

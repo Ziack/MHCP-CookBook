@@ -114,8 +114,14 @@
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Services" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Discovery" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
@@ -165,6 +171,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Services\APRWcfServiceFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Site.css" />
@@ -196,6 +203,18 @@
     <ProjectReference Include="..\MHCP.Infrastructure\MHCP.Infrastructure.Data.Seedwork.csproj">
       <Project>{9544D94B-9B6E-4B61-8A09-88382205BF86}</Project>
       <Name>MHCP.Infrastructure.Data.Seedwork</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHCP.Services.Dtos\MHCP.Services.Dtos.csproj">
+      <Project>{38A6A22F-9B33-4744-A339-BEF65C6DA8A5}</Project>
+      <Name>MHCP.Services.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHCP.Services.Wcf.Client\MHCP.Services.Wcf.Client.csproj">
+      <Project>{48F2FFBC-7413-4997-A2D2-927E23E94285}</Project>
+      <Name>MHCP.Services.Wcf.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHCP.Services.Wcf\MHCP.Services.Wcf.csproj">
+      <Project>{3846209C-A03B-4AB2-97D7-BF499E2AC868}</Project>
+      <Name>MHCP.Services.Wcf</Name>
     </ProjectReference>
     <ProjectReference Include="..\MHCP.Tasks\MHCP.Tasks.csproj">
       <Project>{C9AAC14B-E695-4508-83B7-ACB8FC5A7284}</Project>
@@ -232,7 +251,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51949</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

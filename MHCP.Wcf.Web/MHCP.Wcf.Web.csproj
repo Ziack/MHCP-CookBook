@@ -96,7 +96,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="APR\APRService.svc" />
+    <Content Include="APRService.svc" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -128,9 +128,17 @@
       <Project>{9544D94B-9B6E-4B61-8A09-88382205BF86}</Project>
       <Name>MHCP.Infrastructure.Data.Seedwork</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MHCP.Services.Dtos\MHCP.Services.Dtos.csproj">
+      <Project>{38A6A22F-9B33-4744-A339-BEF65C6DA8A5}</Project>
+      <Name>MHCP.Services.Dtos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MHCP.Services.Wcf\MHCP.Services.Wcf.csproj">
       <Project>{3846209C-A03B-4AB2-97D7-BF499E2AC868}</Project>
       <Name>MHCP.Services.Wcf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MHCP.Tasks\MHCP.Tasks.csproj">
+      <Project>{C9AAC14B-E695-4508-83B7-ACB8FC5A7284}</Project>
+      <Name>MHCP.Tasks</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
