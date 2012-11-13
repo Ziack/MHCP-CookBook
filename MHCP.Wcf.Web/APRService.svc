@@ -1,3 +1,5 @@
 ﻿<%@ ServiceHost Language="C#" Debug="true" 
     Service="MHCP.Services.Wcf.BoundedContexts.APR.APRWcfService" 
     Factory="SharpArch.NHibernate.Wcf.ServiceHostFactory, SharpArch.NHibernate" %>
+
+//Castle.Facilities.WcfIntegration.DefaultServiceHostFactory, Castle.Facilities.WcfIntegration

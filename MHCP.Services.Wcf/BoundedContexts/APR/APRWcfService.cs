@@ -31,7 +31,7 @@ namespace MHCP.Services.Wcf.BoundedContexts.APR
         
         public IList<PersonDTO> GetPersonsByAge(int age)
         {
-            //this.personTask.GetPersonsByAge(age);
+            this.personTask.GetPersonsByAge(age);
             return new List<PersonDTO>();
         }
     }

@@ -10,6 +10,10 @@
     using SharpArch.NHibernate.Contracts.Repositories;
     using SharpArch.Domain.Commands;
     using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
+    using Castle.Facilities.WcfIntegration;
+    using Castle.Facilities.NHibernate;
+    using NHibernate;
+    using SharpArch.Domain.Events;
     
     public class ComponentRegistrar
     {
@@ -17,7 +21,9 @@
         {
             AddGenericRepositoriesTo(container);
             AddCustomRepositoriesTo(container);
+            AddQueryObjectsTo(container);
             AddTasksTo(container);
+            AddHandlersTo(container);
             AddWcfServicesTo(container);
         }
 
@@ -27,6 +33,14 @@
                 AllTypes
                     .FromAssemblyNamed("MHCP.Infrastructure.Data")
                     .BasedOn(typeof(IRepositoryWithTypedId<,>))
+                    .WithService.DefaultInterfaces());
+        }
+
+        private static void AddQueryObjectsTo(IWindsorContainer container)
+        {
+            container.Register(
+                AllTypes.FromAssemblyNamed("MHCP.Infrastructure.Data")
+                    .BasedOn(typeof(NHibernateQuery))
                     .WithService.DefaultInterfaces());
         }
 
@@ -69,12 +83,36 @@
                     .WithService.AllInterfaces());
         }
 
+        private static void AddHandlersTo(IWindsorContainer container)
+        {
+            container.Register(
+                AllTypes.FromAssemblyNamed("MHCP.Tasks")
+                    .BasedOn(typeof(ICommandHandler<>))
+                    .WithService.FirstInterface());
+
+            container.Register(
+                AllTypes.FromAssemblyNamed("MHCP.Tasks")
+                    .BasedOn(typeof(IHandles<>))
+                    .WithService.FirstInterface());
+        }
+
         private static void AddWcfServicesTo(IWindsorContainer container)
         {
+            container.AddFacility<WcfFacility>();
+                        
             container.Register(
                 Component.For<APRWcfService>()
                 .ImplementedBy<APRWcfService>()
+                .LifestylePerWcfOperation()
                 .Named("APRWcfService"));
+        }
+
+        private static void AddNHibernateFacilityTo(IWindsorContainer container)
+        {
+            //Integrating a Single Session Per Request
+            container.AddFacility<NHibernateFacility>();
+            container.Register(Component.For<ISession>().LifeStyle.PerWcfOperation()
+                .UsingFactoryMethod(x => container.Resolve<ISessionManager>().OpenSession()));
         }
     }
 }
