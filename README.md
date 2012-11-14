@@ -1,7 +1,7 @@
 SIIF
 ====
 
-Esta solución trata de ilustrar una sólida base de arquitectura para la construcción rápida de aplicaciones web altamento mantenibles, haciendo uso de ASP.NET MVC e NHibernate. 
+Esta solución trata de ilustrar una sólida base de arquitectura para la construcción rápida de aplicaciones web altamente mantenibles, haciendo uso de ASP.NET MVC e NHibernate. 
 
 El principal objetivo que se buscada con el uso de cualquier framework arquitectónico es disminuir la cantidad de código que es necesario escribir con el fin de aumentar la calidad del producto final. 
 
