@@ -8,8 +8,7 @@
     using Castle.Windsor;
 
     // MHCP.Web.Mvc.CastleWindsor
-    using CastleWindsor;
-
+    
     using CommonServiceLocator.WindsorAdapter;
 
     using Controllers;
@@ -26,6 +25,7 @@
     using SharpArch.NHibernate.Web.Mvc;
     using SharpArch.Web.Mvc.Castle;
     using SharpArch.Web.Mvc.ModelBinder;
+    using MHCP.Web.Mvc.CastleWindsor;
     
 
     /// <summary>

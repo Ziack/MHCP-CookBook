@@ -13,8 +13,7 @@ namespace MHCP.Infrastructure.Data.BoundedContexts.APR
     public class PersonRepository : NHibernateRepository<Person>, IPersonRepository
     {
         public IList<Person> GetPersonsByAge(int age)
-        {      
-            NHibernate.Cache.
+        {                  
             var criteria =
                 this.Session.CreateCriteria<Person>().Add(
                         Restrictions.Eq("Age", age)).SetResultTransformer(
