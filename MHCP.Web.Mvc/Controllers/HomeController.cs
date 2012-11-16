@@ -20,6 +20,7 @@ namespace MHCP.Web.Mvc.Controllers
         {
             var result = personTask.GetPersonsByAge(10);
             personTask.Close();
+            
             return View();
         }
 
