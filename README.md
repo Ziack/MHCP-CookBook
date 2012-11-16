@@ -1,4 +1,4 @@
-SIIF
+MHCP CookBook
 ====
 
 Esta solución trata de ilustrar una sólida base de arquitectura para la construcción rápida de aplicaciones web altamente mantenibles, haciendo uso de ASP.NET MVC e NHibernate. 
