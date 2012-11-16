@@ -12,7 +12,7 @@ namespace MHCP.Services.Wcf.Client.APR
 {
     public class APRWcfServiceClient : ClientBase<IAPRWcfService>, IAPRWcfService
     {
-         public APRWcfServiceClient()
+        public APRWcfServiceClient()
         {
         }
 

@@ -27,5 +27,15 @@
         {
             return member.Name == "Id";
         }
+
+        public override bool IsComponent(System.Type type)
+        {
+            return type.BaseType == typeof(ValueObject);
+        }
+
+        public override string GetComponentColumnPrefix(Member member)
+        {
+            return member.PropertyType.Name + "_";
+        }
     }
 }
