@@ -33,13 +33,14 @@ namespace MHCP.Web.Mvc.Helpers
         public IEnumerable<SelectListItem> GetMethodResult()
         {
             Check.Require(_serviceType != null, "Service class type is needed.");
+            var task = MvcApplication.container.Resolve(_serviceType);
             
-                var task = MvcApplication.container.Resolve(_serviceType);
-                var methodInfo = _serviceType.GetMethod(_comboBoxServiceMethods);
+            var methodInfo = _serviceType.GetMethod(_comboBoxServiceMethods);
+            Check.Require(methodInfo != null, String.Format("Method Name '{0}' doesn't exist in '{1}'.", _comboBoxServiceMethods, _serviceType));
+            
+            IList result = methodInfo.Invoke(task, _arguments) as IList;
+            return new SelectList(result);
 
-                IList result = methodInfo.Invoke(task, _arguments) as IList;
-                return new SelectList(result);
-            
         }
     }
 }
