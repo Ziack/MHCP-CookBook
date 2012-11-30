@@ -8,6 +8,7 @@ using MHCP.Domain.BoundedContexts.APR.Contracts.Tasks;
 using SharpArch.Domain.PersistenceSupport;
 using MHCP.Domain.BoundedContexts.APR.Repositories;
 using SharpArch.Domain;
+using MHCP.Domain.BoundedContexts.DRG.Repositories;
 
 namespace MHCP.Tasks.BoundedContexts
 {
@@ -16,7 +17,7 @@ namespace MHCP.Tasks.BoundedContexts
         public PersonTasks(IPersonRepository personRepository) : base(personRepository) {}
 
         public IList<Person> GetPersonsByAge(int age)
-        {
+        {            
             return this.repository.GetPersonsByAge(age);
         }
     }

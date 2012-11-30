@@ -7,6 +7,7 @@ using MHCP.Domain.BoundedContexts.APR.Contracts.Tasks;
 using SharpArch.Domain;
 using MHCP.Services.Dtos.BoundedContexts.APR;
 using System.ServiceModel;
+using MHCP.Domain.BoundedContexts.APR;
 
 namespace MHCP.Services.Wcf.BoundedContexts.APR
 {
@@ -29,10 +30,10 @@ namespace MHCP.Services.Wcf.BoundedContexts.APR
         }
 
         
-        public IList<PersonDTO> GetPersonsByAge(int age)
+        public IList<Person> GetPersonsByAge(int age)
         {
-            this.personTask.GetPersonsByAge(age);
-            return new List<PersonDTO>();
+            return this.personTask.GetPersonsByAge(age);
+            
         }
     }
 }

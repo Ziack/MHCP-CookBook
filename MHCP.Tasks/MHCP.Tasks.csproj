@@ -95,9 +95,15 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BoundedContexts\PersonTasks.cs" />
+    <Compile Include="BoundedContexts\APR\PersonTasks.cs" />
+    <Compile Include="BoundedContexts\DRG\DomicilioTasks.cs" />
+    <Compile Include="BoundedContexts\DRG\PedidoTasks.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MHCP.Domain.Seedwork\MHCP.Domain.Seedwork.csproj">
+      <Project>{F90090D8-DCEF-464D-9DB9-3E932F4B6169}</Project>
+      <Name>MHCP.Domain.Seedwork</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MHCP.Domain\MHCP.Domain.csproj">
       <Project>{8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6}</Project>
       <Name>MHCP.Domain</Name>
@@ -129,8 +135,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BoundedContexts\CommandHandlers\" />
-    <Folder Include="BoundedContexts\Commands\" />
+    <Folder Include="BoundedContexts\DRG\CommandHandlers\" />
+    <Folder Include="BoundedContexts\DRG\Commands\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

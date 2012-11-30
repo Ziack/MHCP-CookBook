@@ -1,0 +1,7 @@
+﻿@model DateTime?
+
+<input 
+    type="text" 
+    class="datetime" 
+    name="@ModelMetadata.FromLambdaExpression(model => model, ViewData).PropertyName" 
+    value="" />

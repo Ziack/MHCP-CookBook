@@ -65,8 +65,28 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\..\Packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception.Configuration, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.Interception.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Interception.Configuration.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -90,9 +110,18 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="BoundedContexts\APR\Contracts\Tasks\IPersonTasks.cs" />
+    <Compile Include="BoundedContexts\APR\Contratos\Tasks\IPersonTasks.cs" />
     <Compile Include="BoundedContexts\APR\Person.cs" />
-    <Compile Include="BoundedContexts\APR\Repositories\IPersonRepository.cs" />
+    <Compile Include="BoundedContexts\APR\Repositorios\IPersonRepository.cs" />
+    <Compile Include="BoundedContexts\DRG\Articulo.cs" />
+    <Compile Include="BoundedContexts\DRG\Cliente.cs" />
+    <Compile Include="BoundedContexts\DRG\Contracts\Tasks\IDomicilioTasks.cs" />
+    <Compile Include="BoundedContexts\DRG\Contracts\Tasks\IPedidoTasks.cs" />
+    <Compile Include="BoundedContexts\DRG\DatosContacto.cs" />
+    <Compile Include="BoundedContexts\DRG\Domicilio.cs" />
+    <Compile Include="BoundedContexts\DRG\Pedido.cs" />
+    <Compile Include="BoundedContexts\DRG\Repositories\IDomicilioRepository.cs" />
+    <Compile Include="BoundedContexts\DRG\Repositories\IPedidoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -112,13 +141,20 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="BoundedContexts\APR\BusinessProcess\" />
-    <Folder Include="BoundedContexts\APR\Specifications\" />
+    <Folder Include="BoundedContexts\APR\ProcesosNegocio\" />
+    <Folder Include="BoundedContexts\APR\ReglasNegocio\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BoundedContexts\DRG\Diagrama.cd" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MHCP.Domain.Seedwork\MHCP.Domain.Seedwork.csproj">
+      <Project>{F90090D8-DCEF-464D-9DB9-3E932F4B6169}</Project>
+      <Name>MHCP.Domain.Seedwork</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

@@ -5,6 +5,10 @@ namespace MHCP.Web.Mvc.Controllers
     using MHCP.Domain.BoundedContexts.APR.Contracts.Tasks;
     using SharpArch.Domain;
     using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
+    using MHCP.Domain.BoundedContexts.DRG;
+    using System.Collections.Generic;
+    using MvcContrib.UI.InputBuilder;
+    using MHCP.Services.Dtos.BoundedContexts.APR;
 
     public class HomeController : Controller
     {
@@ -18,10 +22,16 @@ namespace MHCP.Web.Mvc.Controllers
 
         public ActionResult Index()
         {
-            var result = personTask.GetPersonsByAge(10);
-            personTask.Close();
-            
-            return View();
+            var p = new Pedido();
+            p.Articulos = new List<Articulo>();
+            return View(p);
+        }
+
+        [HttpGet]
+        public virtual PartialViewResult AgregarArticulo()
+        {
+            var model = new Articulo();
+            return PartialView("_Articulo" , model);
         }
 
     }

@@ -1,7 +1,7 @@
 ﻿@using MvcContrib.UI.Grid;
-@using MHCP.Domain.BoundedContexts.APR;
+@using MHCP.Domain.BoundedContexts.DRG;
 
-@model Person
+@model Pedido
 
 @{
     ViewBag.Title = "Home";
@@ -11,6 +11,33 @@
     <h2>Hello World!</h2>
     @Html.EditorForModel()
 
-    <form method="post" enctype="multipart/form-data">
-        <input type="file" name="archivo"  />
-    </form>
+    <fieldset>
+        <legend>Articulos</legend>
+        <div data-demo-ajax="list-order-items">
+            @Html.EditorFor(x => x.Articulos)
+        </div>
+        <p>
+            <a href="#" data-demo-ajax="add-order-item" data-demo-ajax-url="@Url.Action("AgregarArticulo", "Home")">Agregar Articulo</a>
+        </p>
+    </fieldset>
+
+
+    @section Scripts
+{
+    <script type="text/javascript">
+        $(function () {
+            $('a[data-demo-ajax=add-order-item]').click(function () {
+                var url = $(this).data('demo-ajax-url');
+                var ul = $('div[data-demo-ajax=list-order-items] ul');
+                $.ajax({
+                    url: url,
+                    success: function (html) {
+                        $('<li />').html(html).appendTo(ul);                        
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}
+ 

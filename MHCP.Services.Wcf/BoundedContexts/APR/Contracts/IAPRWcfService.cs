@@ -5,6 +5,7 @@ using System.Text;
 using System.ServiceModel;
 using SharpArch.Wcf;
 using MHCP.Services.Dtos.BoundedContexts.APR;
+using MHCP.Domain.BoundedContexts.APR;
 
 namespace MHCP.Services.Wcf.BoundedContexts.APR.Contracts
 {
@@ -13,6 +14,6 @@ namespace MHCP.Services.Wcf.BoundedContexts.APR.Contracts
     {
 
         [OperationContract]
-        IList<PersonDTO> GetPersonsByAge(int age);
+        IList<Person> GetPersonsByAge(int age);
     }
 }

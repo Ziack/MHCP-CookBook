@@ -12,17 +12,14 @@
     using CommonServiceLocator.WindsorAdapter;
 
     using Controllers;
-    
-    using Infrastructure.NHibernateMaps;
+
 
     using SharpArch.Domain.Events;
 
     using log4net.Config;
     
     using Microsoft.Practices.ServiceLocation;
-    
-    using SharpArch.NHibernate;
-    using SharpArch.NHibernate.Web.Mvc;
+
     using SharpArch.Web.Mvc.Castle;
     using SharpArch.Web.Mvc.ModelBinder;
     using MHCP.Web.Mvc.CastleWindsor;
@@ -37,7 +34,7 @@
     /// </remarks>
     public class MvcApplication : System.Web.HttpApplication
     {
-        private WebSessionStorage webSessionStorage;
+        public static IWindsorContainer container;
 
         /// <summary>
         /// Due to issues on IIS7, the NHibernate initialization must occur in Init().
@@ -47,8 +44,7 @@
         /// </summary>
         public override void Init()
         {
-            base.Init();
-            this.webSessionStorage = new WebSessionStorage(this);
+            base.Init();            
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -88,7 +84,7 @@
         /// </summary>
         protected virtual void InitializeServiceLocator() 
         {
-            IWindsorContainer container = new WindsorContainer();
+            container = new WindsorContainer();
 
             ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(container));
 
@@ -99,16 +95,6 @@
             DomainEvents.ServiceLocator = windsorServiceLocator;
             ServiceLocator.SetLocatorProvider(() => windsorServiceLocator);
         }
-
-        //private void InitialiseNHibernateSessions()
-        //{
-        //    NHibernateSession.ConfigurationCache = new NHibernateConfigurationFileCache();
-
-        //    NHibernateSession.Init(
-        //        this.webSessionStorage,
-        //        new[] { Server.MapPath("~/bin/MHCP.Infrastructure.dll") },
-        //        new AutoPersistenceModelGenerator().Generate(),
-        //        Server.MapPath("~/NHibernate.config"));
-        //}
+       
     }
 }

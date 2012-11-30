@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Packages\SharpArch.Domain.2.0.4\lib\NET40\SharpArch.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="SharpArch.Wcf">
       <HintPath>..\..\Packages\SharpArch.Wcf.2.0.4\lib\NET40\SharpArch.Wcf.dll</HintPath>
     </Reference>
@@ -49,6 +53,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MHCP.Domain\MHCP.Domain.csproj">
+      <Project>{8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6}</Project>
+      <Name>MHCP.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MHCP.Services.Dtos\MHCP.Services.Dtos.csproj">
       <Project>{38A6A22F-9B33-4744-A339-BEF65C6DA8A5}</Project>
       <Name>MHCP.Services.Dtos</Name>

@@ -7,6 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
 using MHCP.Services.Dtos.BoundedContexts.APR;
+using MHCP.Domain.BoundedContexts.APR;
 
 namespace MHCP.Services.Wcf.Client.APR
 {
@@ -26,7 +27,7 @@ namespace MHCP.Services.Wcf.Client.APR
         {
         }
 
-        public IList<PersonDTO> GetPersonsByAge(int age)
+        public IList<Person> GetPersonsByAge(int age)
         {
             return this.Channel.GetPersonsByAge(age);
         }

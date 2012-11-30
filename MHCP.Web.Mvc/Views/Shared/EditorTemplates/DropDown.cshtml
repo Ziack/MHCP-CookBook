@@ -1,0 +1,4 @@
+﻿@using MHCP.Web.Mvc.Helpers
+@model object
+
+@Html.DropDownListFor(m => m, Html.GetAutomatedList(m => m).SetSelected(Model))

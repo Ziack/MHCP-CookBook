@@ -9,11 +9,10 @@
     using SharpArch.NHibernate;
     using SharpArch.NHibernate.Contracts.Repositories;
     using SharpArch.Domain.Commands;
-    using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
     using Castle.Facilities.WcfIntegration;
     using Castle.Facilities.NHibernate;
-    using NHibernate;
     using SharpArch.Domain.Events;
+    using NHibernate;
     
     public class ComponentRegistrar
     {

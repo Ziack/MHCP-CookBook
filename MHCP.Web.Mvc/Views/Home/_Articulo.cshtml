@@ -1,0 +1,13 @@
+﻿@using HtmlHelpers.BeginCollectionItem
+@model MHCP.Domain.BoundedContexts.DRG.Articulo
+
+@{
+    if (ViewContext.FormContext == null)
+    {
+        ViewContext.FormContext = new FormContext();
+    }
+}
+@using (Html.BeginCollectionItem("Articulos"))
+{
+    @Html.EditorForModel()
+}

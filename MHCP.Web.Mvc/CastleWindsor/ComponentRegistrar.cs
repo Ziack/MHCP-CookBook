@@ -3,12 +3,6 @@
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;
 
-    using SharpArch.Domain.Commands;
-    using SharpArch.Domain.Events;
-    using SharpArch.Domain.PersistenceSupport;
-    using SharpArch.NHibernate;
-    using SharpArch.NHibernate.Contracts.Repositories;
-    using SharpArch.Web.Mvc.Castle;
     using Castle.Facilities.FactorySupport;
     using Castle.DynamicProxy;
     using Castle.Core;
