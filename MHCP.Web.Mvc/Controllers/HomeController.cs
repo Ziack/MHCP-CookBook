@@ -2,13 +2,10 @@
 namespace MHCP.Web.Mvc.Controllers
 {
     using System.Web.Mvc;
-    using MHCP.Domain.BoundedContexts.APR.Contracts.Tasks;
     using SharpArch.Domain;
     using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
     using MHCP.Domain.BoundedContexts.DRG;
     using System.Collections.Generic;
-    using MvcContrib.UI.InputBuilder;
-    using MHCP.Services.Dtos.BoundedContexts.APR;
 
     public class HomeController : Controller
     {

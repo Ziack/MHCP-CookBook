@@ -10,13 +10,11 @@ namespace MHCP.Tasks.BoundedContexts.DRG
 {
     public class PedidoTasks : Tasks<IPedidoRepository>, IPedidoTasks
     {
-        private IPedidoRepository _repository;
-
         public PedidoTasks(IPedidoRepository repository) : base(repository) { }
 
         public Domain.BoundedContexts.DRG.Pedido CreateOrUpdate(Domain.BoundedContexts.DRG.Pedido Entity)
         {
-            return _repository.SaveOrUpdate(Entity);
+            return repository.SaveOrUpdate(Entity);
         }
     }
 }

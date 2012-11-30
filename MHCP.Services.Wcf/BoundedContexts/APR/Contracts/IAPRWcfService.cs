@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using SharpArch.Wcf;
-using MHCP.Services.Dtos.BoundedContexts.APR;
 using MHCP.Domain.BoundedContexts.APR;
 
 namespace MHCP.Services.Wcf.BoundedContexts.APR.Contracts

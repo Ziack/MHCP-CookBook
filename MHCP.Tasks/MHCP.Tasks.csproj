@@ -65,13 +65,6 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\..\Packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="SharpArch.Domain, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\Packages\SharpArch.Domain.2.0.4\lib\NET40\SharpArch.Domain.dll</HintPath>
     </Reference>
@@ -79,14 +72,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Packages\SharpArch.NHibernate.2.0.4\lib\NET40\SharpArch.NHibernate.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Common\AssemblyVersion.cs">
@@ -107,10 +95,6 @@
     <ProjectReference Include="..\MHCP.Domain\MHCP.Domain.csproj">
       <Project>{8DEF56CD-601E-443C-9DCE-C4EC54C0B6A6}</Project>
       <Name>MHCP.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MHCP.Infrastructure\MHCP.Infrastructure.Data.Seedwork.csproj">
-      <Project>{9544D94B-9B6E-4B61-8A09-88382205BF86}</Project>
-      <Name>MHCP.Infrastructure.Data.Seedwork</Name>
     </ProjectReference>
     <ProjectReference Include="..\MHCP.Tasks.Seedwork\MHCP.Tasks.Seedwork.csproj">
       <Project>{CE44749E-C01F-4217-865C-A17BD286F280}</Project>

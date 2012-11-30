@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using MHCP.Services.Wcf.BoundedContexts.APR.Contracts;
-using MHCP.Services.Dtos.BoundedContexts.APR;
 using MHCP.Domain.BoundedContexts.APR;
 
 namespace MHCP.Services.Wcf.Client.APR
